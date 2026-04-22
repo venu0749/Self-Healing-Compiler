@@ -1,0 +1,204 @@
+[
+{
+"input": "Fix missing semicolon\nint main(){ int a = 5 printf(\"hi\"); }",
+"output": "int main(){ int a = 5; printf(\"hi\"); }"
+},
+
+{
+"input": "Fix missing semicolon\nint main(){ printf(\"Hello\") }",
+"output": "int main(){ printf(\"Hello\"); }"
+},
+
+{
+"input": "Fix missing semicolon\nint main(){ int x = 10 printf(\"%d\",x); }",
+"output": "int main(){ int x = 10; printf(\"%d\",x); }"
+},
+
+{
+"input": "Fix missing semicolon\nint main(){ int a=5 int b=6; }",
+"output": "int main(){ int a=5; int b=6; }"
+},
+
+{
+"input": "Fix undeclared variable\nint main(){ a = 10; printf(\"%d\",a); }",
+"output": "int a;\nint main(){ a = 10; printf(\"%d\",a); }"
+},
+
+{
+"input": "Fix undeclared variable\nint main(){ b = 20; }",
+"output": "int b;\nint main(){ b = 20; }"
+},
+
+{
+"input": "Fix undeclared variable\nint main(){ c = 30; printf(\"%d\",c); }",
+"output": "int c;\nint main(){ c = 30; printf(\"%d\",c); }"
+},
+
+{
+"input": "Fix undeclared variable\nint main(){ total = 100; }",
+"output": "int total;\nint main(){ total = 100; }"
+},
+
+{
+"input": "Fix duplicate declaration\nint a; int a; int main(){ return 0; }",
+"output": "int a; int main(){ return 0; }"
+},
+
+{
+"input": "Fix duplicate declaration\nint x; int x; int x;",
+"output": "int x;"
+},
+
+{
+"input": "Fix duplicate declaration\nint num; int num; printf(\"hi\");",
+"output": "int num; printf(\"hi\");"
+},
+
+{
+"input": "Fix type mismatch\nint main(){ int a; a = \"hello\"; }",
+"output": "int main(){ char* a; a = \"hello\"; }"
+},
+
+
+
+{
+"input": "Fix type mismatch\nint main(){ int a = 5.5; }",
+"output": "int main(){ float a = 5.5; }"
+},
+
+{
+"input": "Fix type mismatch\nint main(){ char c = 1000; }",
+"output": "int main(){ int c = 1000; }"
+},
+
+{
+"input": "Fix missing return statement\nint main(){ printf(\"hi\"); }",
+"output": "int main(){ printf(\"hi\"); return 0; }"
+},
+
+{
+"input": "Fix missing return statement\nint main(){ int a = 5; }",
+"output": "int main(){ int a = 5; return 0; }"
+},
+
+{
+"input": "Fix missing brackets\nint main( printf(\"hi\"); )",
+"output": "int main(){ printf(\"hi\"); }"
+},
+
+{
+"input": "Fix missing brackets\nint main( int a = 5; )",
+"output": "int main(){ int a = 5; }"
+},
+
+{
+"input": "Fix undeclared variable\nint main(){ sum = 50; printf(\"%d\",sum); }",
+"output": "int sum;\nint main(){ sum = 50; printf(\"%d\",sum); }"
+},
+
+{
+"input": "Fix missing semicolon\nint main(){ int k=9 printf(\"%d\",k); }",
+"output": "int main(){ int k=9; printf(\"%d\",k); }"
+},
+
+{"input":"Fix undeclared variable\nint main(){ a = 5; printf(\"%d\",a); }","output":"int main(){ int a; a = 5; printf(\"%d\",a); }"},
+{"input":"Fix undeclared variable\nint main(){ b = 10; printf(\"%d\",b); }","output":"int main(){ int b; b = 10; printf(\"%d\",b); }"},
+{"input":"Fix undeclared variable\nint main(){ c = 3; printf(\"%d\",c); }","output":"int main(){ int c; c = 3; printf(\"%d\",c); }"},
+{"input":"Fix undeclared variable\nint main(){ x = 7; printf(\"%d\",x); }","output":"int main(){ int x; x = 7; printf(\"%d\",x); }"},
+{"input":"Fix undeclared variable\nint main(){ y = 12; printf(\"%d\",y); }","output":"int main(){ int y; y = 12; printf(\"%d\",y); }"},
+
+{"input":"Fix duplicate declaration\nint main(){ int a = 5; int a = 7; }","output":"int main(){ int a = 5; a = 7; }"},
+{"input":"Fix duplicate declaration\nint main(){ int b = 3; int b = 9; }","output":"int main(){ int b = 3; b = 9; }"},
+{"input":"Fix duplicate declaration\nint main(){ int x = 1; int x = 2; }","output":"int main(){ int x = 1; x = 2; }"},
+{"input":"Fix duplicate declaration\nint main(){ int y = 4; int y = 5; }","output":"int main(){ int y = 4; y = 5; }"},
+{"input":"Fix duplicate declaration\nint main(){ int c = 6; int c = 8; }","output":"int main(){ int c = 6; c = 8; }"},
+
+{"input":"Fix missing semicolon\nint main(){ int a = 5 printf(\"%d\",a); }","output":"int main(){ int a = 5; printf(\"%d\",a); }"},
+{"input":"Fix missing semicolon\nint main(){ int b = 10 printf(\"%d\",b); }","output":"int main(){ int b = 10; printf(\"%d\",b); }"},
+{"input":"Fix missing semicolon\nint main(){ int c = 3 printf(\"%d\",c); }","output":"int main(){ int c = 3; printf(\"%d\",c); }"},
+{"input":"Fix missing semicolon\nint main(){ int x = 7 printf(\"%d\",x); }","output":"int main(){ int x = 7; printf(\"%d\",x); }"},
+{"input":"Fix missing semicolon\nint main(){ int y = 12 printf(\"%d\",y); }","output":"int main(){ int y = 12; printf(\"%d\",y); }"},
+
+{"input":"Fix type mismatch\nint main(){ int a = 5.5; }","output":"int main(){ float a = 5.5; }"},
+{"input":"Fix type mismatch\nint main(){ int b = 7.8; }","output":"int main(){ float b = 7.8; }"},
+{"input":"Fix type mismatch\nint main(){ int c = 2.4; }","output":"int main(){ float c = 2.4; }"},
+{"input":"Fix type mismatch\nint main(){ int x = 9.3; }","output":"int main(){ float x = 9.3; }"},
+{"input":"Fix type mismatch\nint main(){ int y = 6.6; }","output":"int main(){ float y = 6.6; }"},
+
+{"input":"Fix printf mismatch\nint main(){ int a=5; printf(\"%f\",a); }","output":"int main(){ int a=5; printf(\"%d\",a); }"},
+{"input":"Fix printf mismatch\nint main(){ int b=6; printf(\"%f\",b); }","output":"int main(){ int b=6; printf(\"%d\",b); }"},
+{"input":"Fix printf mismatch\nint main(){ int c=7; printf(\"%f\",c); }","output":"int main(){ int c=7; printf(\"%d\",c); }"},
+{"input":"Fix printf mismatch\nint main(){ int x=8; printf(\"%f\",x); }","output":"int main(){ int x=8; printf(\"%d\",x); }"},
+{"input":"Fix printf mismatch\nint main(){ int y=9; printf(\"%f\",y); }","output":"int main(){ int y=9; printf(\"%d\",y); }"},
+
+{"input":"Fix assignment error\nint main(){ int a; a == 5; }","output":"int main(){ int a; a = 5; }"},
+{"input":"Fix assignment error\nint main(){ int b; b == 6; }","output":"int main(){ int b; b = 6; }"},
+{"input":"Fix assignment error\nint main(){ int c; c == 7; }","output":"int main(){ int c; c = 7; }"},
+{"input":"Fix assignment error\nint main(){ int x; x == 8; }","output":"int main(){ int x; x = 8; }"},
+{"input":"Fix assignment error\nint main(){ int y; y == 9; }","output":"int main(){ int y; y = 9; }"},
+
+{"input":"Fix missing return\nint main(){ int a=5; printf(\"%d\",a); }","output":"int main(){ int a=5; printf(\"%d\",a); return 0; }"},
+{"input":"Fix missing return\nint main(){ int b=6; printf(\"%d\",b); }","output":"int main(){ int b=6; printf(\"%d\",b); return 0; }"},
+{"input":"Fix missing return\nint main(){ int c=7; printf(\"%d\",c); }","output":"int main(){ int c=7; printf(\"%d\",c); return 0; }"},
+{"input":"Fix missing return\nint main(){ int x=8; printf(\"%d\",x); }","output":"int main(){ int x=8; printf(\"%d\",x); return 0; }"},
+{"input":"Fix missing return\nint main(){ int y=9; printf(\"%d\",y); }","output":"int main(){ int y=9; printf(\"%d\",y); return 0; }"},
+
+{"input":"Fix initialization\nint main(){ int a; printf(\"%d\",a); }","output":"int main(){ int a = 0; printf(\"%d\",a); }"},
+{"input":"Fix initialization\nint main(){ int b; printf(\"%d\",b); }","output":"int main(){ int b = 0; printf(\"%d\",b); }"},
+{"input":"Fix initialization\nint main(){ int c; printf(\"%d\",c); }","output":"int main(){ int c = 0; printf(\"%d\",c); }"},
+{"input":"Fix initialization\nint main(){ int x; printf(\"%d\",x); }","output":"int main(){ int x = 0; printf(\"%d\",x); }"},
+{"input":"Fix initialization\nint main(){ int y; printf(\"%d\",y); }","output":"int main(){ int y = 0; printf(\"%d\",y); }"},
+
+
+
+{"input":"Fix undeclared variable\nint main(){ d = 4; printf(\"%d\",d); }","output":"int main(){ int d; d = 4; printf(\"%d\",d); }"},
+{"input":"Fix undeclared variable\nint main(){ e = 8; printf(\"%d\",e); }","output":"int main(){ int e; e = 8; printf(\"%d\",e); }"},
+{"input":"Fix undeclared variable\nint main(){ f = 15; printf(\"%d\",f); }","output":"int main(){ int f; f = 15; printf(\"%d\",f); }"},
+{"input":"Fix undeclared variable\nint main(){ g = 21; printf(\"%d\",g); }","output":"int main(){ int g; g = 21; printf(\"%d\",g); }"},
+{"input":"Fix undeclared variable\nint main(){ h = 11; printf(\"%d\",h); }","output":"int main(){ int h; h = 11; printf(\"%d\",h); }"},
+
+{"input":"Fix duplicate declaration\nint main(){ int d = 3; int d = 9; }","output":"int main(){ int d = 3; d = 9; }"},
+{"input":"Fix duplicate declaration\nint main(){ int e = 6; int e = 12; }","output":"int main(){ int e = 6; e = 12; }"},
+{"input":"Fix duplicate declaration\nint main(){ int f = 2; int f = 8; }","output":"int main(){ int f = 2; f = 8; }"},
+{"input":"Fix duplicate declaration\nint main(){ int g = 1; int g = 4; }","output":"int main(){ int g = 1; g = 4; }"},
+{"input":"Fix duplicate declaration\nint main(){ int h = 7; int h = 9; }","output":"int main(){ int h = 7; h = 9; }"},
+
+{"input":"Fix missing semicolon\nint main(){ int d = 4 printf(\"%d\",d); }","output":"int main(){ int d = 4; printf(\"%d\",d); }"},
+{"input":"Fix missing semicolon\nint main(){ int e = 8 printf(\"%d\",e); }","output":"int main(){ int e = 8; printf(\"%d\",e); }"},
+{"input":"Fix missing semicolon\nint main(){ int f = 3 printf(\"%d\",f); }","output":"int main(){ int f = 3; printf(\"%d\",f); }"},
+{"input":"Fix missing semicolon\nint main(){ int g = 6 printf(\"%d\",g); }","output":"int main(){ int g = 6; printf(\"%d\",g); }"},
+{"input":"Fix missing semicolon\nint main(){ int h = 9 printf(\"%d\",h); }","output":"int main(){ int h = 9; printf(\"%d\",h); }"},
+
+{"input":"Fix type mismatch\nint main(){ int d = 4.5; }","output":"int main(){ float d = 4.5; }"},
+{"input":"Fix type mismatch\nint main(){ int e = 7.2; }","output":"int main(){ float e = 7.2; }"},
+{"input":"Fix type mismatch\nint main(){ int f = 1.6; }","output":"int main(){ float f = 1.6; }"},
+{"input":"Fix type mismatch\nint main(){ int g = 9.9; }","output":"int main(){ float g = 9.9; }"},
+{"input":"Fix type mismatch\nint main(){ int h = 3.3; }","output":"int main(){ float h = 3.3; }"},
+
+{"input":"Fix printf mismatch\nint main(){ int d=4; printf(\"%f\",d); }","output":"int main(){ int d=4; printf(\"%d\",d); }"},
+{"input":"Fix printf mismatch\nint main(){ int e=5; printf(\"%f\",e); }","output":"int main(){ int e=5; printf(\"%d\",e); }"},
+{"input":"Fix printf mismatch\nint main(){ int f=6; printf(\"%f\",f); }","output":"int main(){ int f=6; printf(\"%d\",f); }"},
+{"input":"Fix printf mismatch\nint main(){ int g=7; printf(\"%f\",g); }","output":"int main(){ int g=7; printf(\"%d\",g); }"},
+{"input":"Fix printf mismatch\nint main(){ int h=8; printf(\"%f\",h); }","output":"int main(){ int h=8; printf(\"%d\",h); }"},
+
+{"input":"Fix assignment error\nint main(){ int d; d == 4; }","output":"int main(){ int d; d = 4; }"},
+{"input":"Fix assignment error\nint main(){ int e; e == 5; }","output":"int main(){ int e; e = 5; }"},
+{"input":"Fix assignment error\nint main(){ int f; f == 6; }","output":"int main(){ int f; f = 6; }"},
+{"input":"Fix assignment error\nint main(){ int g; g == 7; }","output":"int main(){ int g; g = 7; }"},
+{"input":"Fix assignment error\nint main(){ int h; h == 8; }","output":"int main(){ int h; h = 8; }"},
+
+{"input":"Fix missing return\nint main(){ int d=4; printf(\"%d\",d); }","output":"int main(){ int d=4; printf(\"%d\",d); return 0; }"},
+{"input":"Fix missing return\nint main(){ int e=5; printf(\"%d\",e); }","output":"int main(){ int e=5; printf(\"%d\",e); return 0; }"},
+{"input":"Fix missing return\nint main(){ int f=6; printf(\"%d\",f); }","output":"int main(){ int f=6; printf(\"%d\",f); return 0; }"},
+{"input":"Fix missing return\nint main(){ int g=7; printf(\"%d\",g); }","output":"int main(){ int g=7; printf(\"%d\",g); return 0; }"},
+{"input":"Fix missing return\nint main(){ int h=8; printf(\"%d\",h); }","output":"int main(){ int h=8; printf(\"%d\",h); return 0; }"},
+
+{"input":"Fix initialization\nint main(){ int d; printf(\"%d\",d); }","output":"int main(){ int d = 0; printf(\"%d\",d); }"},
+{"input":"Fix initialization\nint main(){ int e; printf(\"%d\",e); }","output":"int main(){ int e = 0; printf(\"%d\",e); }"},
+{"input":"Fix initialization\nint main(){ int f; printf(\"%d\",f); }","output":"int main(){ int f = 0; printf(\"%d\",f); }"},
+{"input":"Fix initialization\nint main(){ int g; printf(\"%d\",g); }","output":"int main(){ int g = 0; printf(\"%d\",g); }"},
+{"input":"Fix initialization\nint main(){ int h; printf(\"%d\",h); }","output":"int main(){ int h = 0; printf(\"%d\",h); }"}
+
+]
+
+

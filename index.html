@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Healing Compiler</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header glass-panel">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>Self-Healing Compiler <span class="badge">v2.0</span></h1>
+            </div>
+            <div class="controls">
+                <button id="themeToggle" class="theme-toggle" title="Toggle Theme">
+                    <svg class="light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button id="healBtn" class="primary-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z">
+                        </path>
+                        <path d="m14 7 3 3"></path>
+                        <path d="M5 6v4"></path>
+                        <path d="M19 14v4"></path>
+                        <path d="M10 2v2"></path>
+                        <path d="M7 8H3"></path>
+                        <path d="M21 16h-4"></path>
+                        <path d="M11 3H9"></path>
+                    </svg>
+                    Heal Code
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-grid">
+
+            <!-- Left Panel: Input Code -->
+            <section class="editor-section glass-panel">
+                <div class="section-header">
+                    <h2>Original C Code</h2>
+                    <div class="actions">
+                        <button id="uploadBtn" class="secondary-btn text-sm">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            Upload Code
+                        </button>
+                        <input type="file" id="fileInput" accept=".c,.h,.cpp,.txt" style="display: none;">
+                        <button id="loadExampleBtn" class="secondary-btn text-sm">Load Example</button>
+                    </div>
+                </div>
+                <div class="editor-wrapper">
+                    <textarea id="codeInput" spellcheck="false" placeholder="Paste your C code here..."></textarea>
+                </div>
+            </section>
+
+            <!-- Middle Panel: Errors & Analysis -->
+            <section class="analysis-section glass-panel">
+                <div class="section-header">
+                    <h2>Analysis</h2>
+                </div>
+
+                <div class="confidence-widget">
+                    <div class="confidence-header">
+                        <h3>AI Confidence</h3>
+                        <span id="confidenceValue">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="confidenceBar" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="error-container">
+                    <h3>Initial Errors <span id="initialErrorCount" class="count-badge">0</span></h3>
+                    <ul id="initialErrorList" class="error-list">
+                        <li class="empty-state">No errors detected yet.</li>
+                    </ul>
+
+                    <h3 class="mt-4">Remaining Errors <span id="remainingErrorCount" class="count-badge">0</span></h3>
+                    <ul id="remainingErrorList" class="error-list">
+                        <li class="empty-state">Run compiler to see results.</li>
+                    </ul>
+                </div>
+
+                <div class="expandable-sections mt-4">
+                    <details class="expandable">
+                        <summary>View AST</summary>
+                        <pre id="astOutput" class="code-output">AST will appear here...</pre>
+                    </details>
+                    <details class="expandable">
+                        <summary>View Tokens</summary>
+                        <pre id="tokensOutput" class="code-output">Tokens will appear here...</pre>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Right Panel: Healed Code -->
+            <section class="editor-section glass-panel">
+                <div class="section-header">
+                    <h2>Healed Code</h2>
+                    <div class="status-indicator" id="healStatus">
+                        <span class="dot"></span> Ready
+                    </div>
+                </div>
+                <div class="editor-wrapper">
+                    <textarea id="codeOutput" spellcheck="false" readonly
+                        placeholder="Healed code will appear here..."></textarea>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Analyzing and Healing Code...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
